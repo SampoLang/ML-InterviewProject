@@ -13,7 +13,6 @@ public class EnvironmentEntity implements Serializable {
     //pitäskö olla unique?
     @Column(nullable = false, unique = true)
     private String code;
-
     private String url;
     private String url2;
     @Column(name = "environmentGroup")

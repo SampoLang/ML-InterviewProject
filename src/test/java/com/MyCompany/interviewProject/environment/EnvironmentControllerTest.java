@@ -71,7 +71,7 @@ public class EnvironmentControllerTest {
         ResponseEntity<EnvironmentDTO> responseEntity = environmentController.getEnvironmentById(1L);
 
         // Assert
-        assertEquals(HttpStatus.FOUND, responseEntity.getStatusCode());
+        assertEquals(HttpStatus.OK, responseEntity.getStatusCode());
         assertEquals(1L, Objects.requireNonNull(responseEntity.getBody()).getId());
         assertEquals("defaultCode", Objects.requireNonNull(responseEntity.getBody()).getCode());
     }

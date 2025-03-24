@@ -36,9 +36,8 @@ public class EnvironmentDaoImpl implements EnvironmentDao {
     public EnvironmentEntity findById(Long id) {
         EnvironmentEntity environment = entityManager.find(EnvironmentEntity.class, id);
         if (environment == null) {
-            logger.warn("Environment entity not found with ID: {}", id);
-            throw new EnvironmentNotFoundException("Environment entity with ID " + id + " not found.");
-        }
+            logger.info("Environment entity not found with ID: {}", id);
+            return null;        }
         return environment;
     }
 
@@ -50,8 +49,8 @@ public class EnvironmentDaoImpl implements EnvironmentDao {
         }
         catch (jakarta.persistence.NoResultException e)
         {
-            logger.warn("Environment entity not found with CODE: {}", code);
-            throw new EnvironmentNotFoundException("Environment entity with CODE " + code + " not found.");
+            logger.info("Environment entity not found with CODE: {}", code);
+            return null;
         }
         catch (Exception e) {
             logger.error("An unexpected error occurred while fetching environment entity by CODE: {}", code, e);
